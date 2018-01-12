@@ -12,6 +12,9 @@ print(x, y)
 x, y = y, x
 print(x, y)
 
+
+
+
 #///////////////////////////////////////////////////////////////////#
 #Creating new types in a dynamic manner
 
@@ -19,11 +22,14 @@ NewType = type("NewType", (object,), {"function": "I'm NewType's function."})
 myNewType = NewType()
 print(myNewType.function)
 
-#Basically does exactly this:
+#Basically exactly this:
 class NewType(object):
      function = "I'm NewType's function"
 myNewType = NewType()
 print(myNewType.function)
+
+
+
 
 #///////////////////////////////////////////////////////////////////#
 #Shortcuts in if-else syntax, useful for confusing co-workers
@@ -34,24 +40,81 @@ n = 10
 print("This should be printed") if n == 10 else print("Ruh roh")
 
 
+
+
 #///////////////////////////////////////////////////////////////////#
 #Quick assignment from anything itterable to new variables, useful with map.
-tinyList = ['1',2,'3']
 
+tinyList = ['1',2,'3']
 x, y, z = tinyList    #List size must = the number of variables exactly!
+print("One here: ",  x)
+print("Two here: ", y)
+print("Three here: ", z)
+
+x, *y, z, q = [1,2,3,4,5,6,7]      #But you can cheat the above rule doing this.
+print("One here: ", x)
+print("All numbers up till the last two: ", y)
+print("Six here: ", z)
+print("Seven here: ", q)
+
+x, y, z = (i+1 for i in range(3))
 print("One here: ", x)
 print("Two here: ", y)
 print("Three here: ", z)
+
+x, (y, z), q = [1, (2, 3), 4]
+print("One here: ", x)
+print("Two here: ", y)
+print("Three here: ", z)
+print("Four here: ", q)
 
 x, y, z = map(int, tinyList)
 print(type(x), " x should be an int class. 1 should be here: ", x)
 
 
+
+
 #///////////////////////////////////////////////////////////////////#
-#Constructs strings pretty easily from lists
-myStringList = ["Please", "give", "this","string","spaces", ":("]
-myFixedString = ' '.join(myStringList)
-print(myFixedString)
+#Things you can do with negatives in the index spot
+
+myList = [1,2,3,4,5,6,7,8,9,10]
+print("Get the last element: ", myList[-1])
+print("Get the second to last element: ", myList[-2])
+print("Get the last element as a list of it's own: ", myList[-1:])
+print(type(myList[-1:]))
+
+
+
+
+#///////////////////////////////////////////////////////////////////#
+#More things you can do with slicing
+#General rule: [ <Start> : <End> : <Step Size> ]
+#If you don't fill out a <> it falls to it's default:
+#<Start = 0>, <End = Ending Index>, <Step Size = 1>
+
+myList = [1,2,"H","e","y",3,4,5]
+print("Get Hey ", myList[2:5])
+print("Get Hey ", myList[-6:-3])
+print("Reverse list: ", myList[::-1])
+print("Print every other: ", myList[::2])
+
+#Printing out the index with the corresponding value for visual confirmation
+for index, item in enumerate(myList):
+    print(index, item)
+
+
+
+
+#///////////////////////////////////////////////////////////////////#
+# Getting a function to return multiple variables
+def function():
+	return 1, 2, 3
+
+x, y, z = function()
+print(x, y, z )     #Variables saved as ints
+print(function())   #Function() returns as a tuple.
+
+
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -60,6 +123,9 @@ myList = ['one', 'two', 'three', 'four']
 myOtherList = [1, 2, 3, 4]
 for x, y in zip(myList, myOtherList):
     print(x, ' ', y)
+
+
+
 
 #///////////////////////////////////////////////////////////////////#
 #Append one list to the end of another quickly
@@ -71,6 +137,9 @@ myOtherList = [1, 2, 3, 4]
 finalList = [*myList, *myOtherList]
 print(finalList)
 
+
+
+
 #///////////////////////////////////////////////////////////////////#
 #Combining dicts together using same logic as above snippet
 myDict = {'y': 5, 'x': 6}
@@ -80,6 +149,9 @@ combinedDict = {**myDict, **myOtherDict}
 print(combinedDict)
 #{'y': 5, 'x': 6, 'z': 3, 'a': 2}
 
+
+
+
 #///////////////////////////////////////////////////////////////////#
 #Merging a 2D list into a 1D list side by side
 import itertools
@@ -87,6 +159,34 @@ import itertools
 mylist = [['One', 2], ['Three', 4], ['Five', 6]]
 fixedList = list(itertools.chain.from_iterable(mylist))
 print(fixedList)
+
+
+
+
+
+#///////////////////////////////////////////////////////////////////#
+#Multiple if statements
+
+m = 3
+if m==1 or m==3 or m==5 or m==7: print("Hello")
+if m in [1,3,5,7]: print("This is the same as the above line")
+
+
+
+
+
+#///////////////////////////////////////////////////////////////////#
+#Using Join, and using += with strings
+myStringList = ["Please", "give", "this","string","spaces", ":("]
+myFixedString = ' '.join(myStringList)
+print(myFixedString)
+
+myFixedString = ''
+for i in range(len(myStringList)):
+    myFixedString += myStringList[i] + " "
+print(myFixedString)
+
+
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -102,15 +202,20 @@ bad = Counter(myBadString) == Counter(myGoodString)
 print("This should be true: ", good, " This should be false: ", bad)
 
 
+
+
 #///////////////////////////////////////////////////////////////////#
 #Different ways to convert a string of numbers into a list of ints.
 
 myString = "123456789"
+
 newList = [int(char) for char in myString]
 print(newList, type(newList[2]))
 
 newList = list(map(int,myString))
 print(newList, type(newList[2]))
+
+
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -119,6 +224,10 @@ myString = "P#leas^e///# remo0ve w^eird **(chara!cters!?) +=-"
 fixedList = [i for i in myString if i.isalpha() or i.isspace()]
 fixedString = ''.join(fixedList)
 print(fixedString)
+
+
+
+
 
 #///////////////////////////////////////////////////////////////////#
 #Other cool uses putting generators with loop comprehensions, lets you escape intermediate storage
@@ -131,12 +240,47 @@ for i in n:
     print(i)
 
 
+
+
+#///////////////////////////////////////////////////////////////////#
+#Putting expressions into dicts is actually possible.
+magicDict = {
+	'sum': lambda x, y: x + y,
+	'subtract': lambda x, y: x - y,
+    'p': lambda x, y: print(x, y)
+}
+
+print(magicDict['sum'](12,8))
+print(magicDict['subtract'](12,2))
+magicDict['p']("hello", " world!")
+
+
+
+
 #///////////////////////////////////////////////////////////////////#
 #Get index and value side by side from anything itterable.
 
 myList = ['A', 'B', 'C3P0', 4, 'High Five']
 for index, item in enumerate(myList):
     print(index, item)
+
+
+
+
+#///////////////////////////////////////////////////////////////////#
+#Setting up enum definitions
+
+class numbers:
+	A, B, C, D, E = ['A', 'B', 'C3P0', 4, 'High Five']
+
+print(numbers.A)
+print(numbers.B)
+print(numbers.C)
+print(numbers.D)
+print(numbers.E)
+
+
+
 
 #///////////////////////////////////////////////////////////////////#
 #Sending lists, sets and dictionaries to a function as a whole.
@@ -148,18 +292,30 @@ myList = [1, 2]
 mySet = (3, 4)
 myDict = {'y': 5, 'x': 6}
 
-#foo(myList)    #won't work
+foo(myList)     #won't work
 foo(*myList)    #prints 1, 2
 foo(*mySet)     #prints 3, 4
 foo(*myDict)    #prints y, x
 foo(**myDict)   #prints 5, 6
 
+
+
+
+#///////////////////////////////////////////////////////////////////#
+#Print out the most repeating number, using count shenanigans with max
+
+myList = [1,2,3,4,2,2,3,1,4,4,4]
+mySet = set(myList)
+print(max(mySet, key = myList.count))
+
+
+
+
 #///////////////////////////////////////////////////////////////////#
 #Different ways to reverse a list, string, ect.
 
-#reverses everything, no problems.
 def using_Slice(myItem):
-    print(myItem[::-1])
+    print(myItem[::-1])     #Best one to use, handles everything
 
 def using_Reversed(myItem):
     print([char for char in reversed(myItem)])
@@ -168,14 +324,13 @@ def using_Reversed_alt(myItem):
     for char in reversed(myItem):
         print(char)
 
-#Reverses a list, but not a string!
 def using_Reverse(myItem):
-    myItem.reverse()
+    myItem.reverse()        #Reverses a list, but not a string!
     print(myItem)
 
 myString = "Hello World!"
 tinyList = [1,2,3]
-using_Slice(tinyList) 
+using_Slice(tinyList)
 using_Reversed(tinyList)
 using_Reversed_alt(myString)
 using_Reverse(tinyList)

@@ -15,8 +15,6 @@ print(x, y)
 #>>> Ten 10
 
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Creating new types in a dynamic manner
 
@@ -33,8 +31,6 @@ myNewType = NewType()
 print(myNewType.function)
 #>>> I'm NewType's function
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Shortcuts in if-else syntax, useful for confusing co-workers
 #[on_true] if [expression] else [on_false]
@@ -43,8 +39,6 @@ print(myNewType.function)
 n = 10
 print("This should be printed") if n == 10 else print("Ruh roh")
 #>>> This should be printed
-
-
 
 #///////////////////////////////////////////////////////////////////#
 #Quick assignment from anything itterable to new variables, useful with map.
@@ -71,8 +65,6 @@ x, (y, z), q = [1, (2, 3), 4]
 x, y, z = map(int, tinyList) #maps tinylist into x, y, z as ints
 
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Things you can do with negatives in the index spot
 
@@ -85,8 +77,6 @@ print(type(myList[-1:]))
 #>>> Get the second to last element:  9
 #>>> Get the last element as a list of it's own:  [10]
 #>>> <class 'list'>
-
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -116,6 +106,19 @@ Index -> Value
 
 
 #///////////////////////////////////////////////////////////////////#
+#You can also replace/add/remove elements with slicing.
+
+myList = [1, 2, 3, 4, 5]
+myList[2:3] = ["Hi","!"]   #Note: We're not replacing just 3. We added ! between 3 and 4.
+print(myList)
+#>>> [1, 2, 'Hi', '!', 4, 5]
+
+myList[2:3] = []
+print(myList)
+#>>> [1, 2, '!', 4, 5]
+
+
+#///////////////////////////////////////////////////////////////////#
 # Getting a function to return multiple variables
 def function():
 	return 1, 2, 3
@@ -125,7 +128,6 @@ print(x, y, z )     #Variables saved as ints
 print(function())   #Function() returns as a tuple.
 #>>> 1 2 3
 #>>> (1, 2, 3)
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -141,6 +143,21 @@ for x, y in zip(myList, myOtherList):
 #>>> four   4
 
 
+#///////////////////////////////////////////////////////////////////#
+#Sliding window with islice
+
+from itertools import islice
+
+def windowSlide(arr, step):
+    ans = (islice(arr, i, None) for i in range(step))
+    return list(zip(*ans))
+
+myList = [1, 2, 3, 4, 5, 6]
+print(windowSlide(myList, 3))
+#>>> [(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
+print(windowSlide(myList, 2))
+#>>> [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+
 
 #///////////////////////////////////////////////////////////////////#
 #Append one list to the end of another quickly
@@ -154,8 +171,6 @@ print(finalList)
 #>>> ['one', 'two', 'three', 'four', 1, 2, 3, 4]
 
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Combining dicts together using same logic as above snippet
 myDict = {'y': 5, 'x': 6}
@@ -166,6 +181,15 @@ print(combinedDict)
 #>>> {'y': 5, 'x': 6, 'z': 3, 'a': 2}
 
 
+#///////////////////////////////////////////////////////////////////#
+#You can generating Dicts on the go
+myList = {x: x ** 2 for x in range(5)}
+print(myList)
+#>>> {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+myList = {x: 'a' + str(x) for x in range(10)}
+print(myList)
+#>>> {0: 'a0', 1: 'a1', 2: 'a2', 3: 'a3', 4: 'a4', 5: 'a5', 6: 'a6', 7: 'a7', 8: 'a8', 9: 'a9'}
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -179,8 +203,6 @@ print(fixedList)
 
 
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Multiple if statements
 
@@ -189,8 +211,6 @@ if m==1 or m==3 or m==5 or m==7: print("Hello")
 if m in [1,3,5,7]: print("This is the same as the above line")
 #>>> Hello
 #>>> This is the same as the above line
-
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -207,22 +227,6 @@ print(myFixedString)
 #>>> Please give this string spaces :(
 
 
-
-#///////////////////////////////////////////////////////////////////#
-#Using counter from collections to match anagrams
-from collections import Counter
-
-myGoodString = "listen"
-myOtherGood  = "silent"
-myBadString = "Not an anagram"
-
-good = Counter(myGoodString) == Counter(myOtherGood)
-bad = Counter(myBadString) == Counter(myGoodString)
-print("This should be true: ", good, " This should be false: ", bad)
-#>>> This should be true:  True  This should be false:  False
-
-
-
 #///////////////////////////////////////////////////////////////////#
 #Different ways to convert a string of numbers into a list of ints.
 
@@ -237,9 +241,6 @@ print(newList, type(newList[2]))
 #>>> [1, 2, 3, 4, 5, 6, 7, 8, 9] <class 'int'>
 
 
-
-
-
 #///////////////////////////////////////////////////////////////////#
 #Using loop comprehensions with if statments
 myString = "P#leas^e///# remo0ve w^eird **(chara!cters!?) +=-"
@@ -247,8 +248,6 @@ fixedList = [i for i in myString if i.isalpha() or i.isspace()]
 fixedString = ''.join(fixedList)
 print(fixedString)
 #>>> Please remove weird characters
-
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -266,9 +265,8 @@ for i in n:
 #>>> [1, 5]
 
 
-
 #///////////////////////////////////////////////////////////////////#
-#Putting expressions into dicts is actually possible.
+#Putting lambda's into dicts is actually possible.
 magicDict = {
 	'sum': lambda x, y: x + y,
 	'subtract': lambda x, y: x - y,
@@ -283,7 +281,6 @@ magicDict['p']("hello", " world!")
 #>>> hello  world!
 
 
-
 #///////////////////////////////////////////////////////////////////#
 #Get index and value side by side from anything itterable.
 
@@ -294,7 +291,6 @@ for index, item in enumerate(myList):
 #>>> 2 C3P0
 #>>> 3 4
 #>>> 4 High Five
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -308,8 +304,6 @@ print(numbers.B)    #>>> B
 print(numbers.C)    #>>> C3P0
 print(numbers.D)    #>>> 4
 print(numbers.E)    #>>> High Five
-
-
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -329,23 +323,45 @@ foo(*myDict)    #>>> y, x
 foo(**myDict)   #>>> 5, 6
 
 
-
-
 #///////////////////////////////////////////////////////////////////#
 #Print out the most repeating number, using count shenanigans with max
 
-myList = [1,2,3,4,2,2,3,1,4,4,4]
+myList = [1,2,3,4,2,2,2,1,4,4,4,7,3,2,8,6,4,1,2,9]
 mySet = set(myList)
 print(max(mySet, key = myList.count))
-#>>> 4
+#>>> 2
 
 
+#///////////////////////////////////////////////////////////////////#
+#Print out the most repeating number, using counter shenanigans
+import collections
+
+myList = [1,2,3,4,2,2,2,1,4,4,4,7,3,2,8,6,4,1,2,9]
+myCounter = collections.Counter(myList)
+print( myCounter.most_common(1) )
+#>>> [(2, 6)]  this means 2 is the most common, appearing 6 times.
+print( myCounter.most_common(3) ) #Print out the first three most common w/ num of occurances.
+#>>> [(2, 6), (4, 5), (1, 3)]
+
+
+#///////////////////////////////////////////////////////////////////#
+#Using counter from collections to match anagrams
+from collections import Counter
+
+myGoodString = "listen"
+myOtherGood  = "silent"
+myBadString = "Not an anagram"
+
+good = Counter(myGoodString) == Counter(myOtherGood)
+bad = Counter(myBadString) == Counter(myGoodString)
+print("This should be true: ", good, " This should be false: ", bad)
+#>>> This should be true:  True  This should be false:  False
 
 
 #///////////////////////////////////////////////////////////////////#
 #Different ways to reverse a list, string, ect.
 
-def using_Slice(myItem):
+|def using_Slice(myItem):
     print(myItem[::-1])     #Best one to use, handles everything
 
 def using_Reversed(myItem):

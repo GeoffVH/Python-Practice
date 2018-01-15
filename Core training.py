@@ -345,6 +345,18 @@ print( myCounter.most_common(3) ) #Print out the first three most common w/ num 
 
 
 #///////////////////////////////////////////////////////////////////#
+#How to use counter in for loops, or dictionaries with for loops in general. 
+import collections
+
+myString = "Hello World!"
+myCounter = collections.Counter(myString)
+for char, occurances in myCounter.items():
+    if char in "aeiouy": 
+        print(char, " occured ", occurances, " times.")
+#>>> e  occured  1  times. o  occured  2  times.
+
+
+#///////////////////////////////////////////////////////////////////#
 #Using counter from collections to match anagrams
 from collections import Counter
 

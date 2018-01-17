@@ -6,7 +6,7 @@ num = map(int,input("Enter the numbers to compare, seperated by a space: ").spli
 print(min(num), " is the minimum of these numbers.")
 
 
-#Divide two user input numbers and round the answer. 
+#Divide two user input numbers and round the answer following standard rounding rules. 
 x, y = map(int, input("Enter the numbers to compare, seperated by a space: ").split())
 print(round(x/y),' is the rounded answer.')
 

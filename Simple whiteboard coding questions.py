@@ -1,14 +1,11 @@
 # Simple coding questions found from different online sources that I answered for practice.
 
+#Given a variable list of numbers, find the second most repeated digit.
+import collections
 
-#Find the minimum of a variable amount of entries. 
-num = map(int,input("Enter the numbers to compare, seperated by a space: ").split())
-print(min(num), " is the minimum of these numbers.")
-
-
-#Divide two user input numbers and round the answer following standard rounding rules. 
-x, y = map(int, input("Enter the numbers to compare, seperated by a space: ").split())
-print(round(x/y),' is the rounded answer.')
+inputList = list(map(int, input("Enter digits: ").split()))
+inputCounter = collections.Counter(inputList)
+print(inputCounter.most_common(2), " is the second most repeated digit.")
 
 
 #Take a user input string and count the number of vowels. Include y as a vowel.
@@ -21,8 +18,33 @@ for char in input("Enter the string: ").lower():
 print(count, " is the amount of vowls in the given string")
 
 
+#Given a user-input digit, print the sum of it's individual digits. 
+#E.G. 224 = 8
+newList = [int(char) for char in input("Enter the number: ")]
+answer = 0
+for num in newList:
+    answer += num
+print(answer, " is the sum of all digits.")
+
+
 #Reverse a given string.
 print(input("Enter the string: ")[::-1])
+
+
+#Given a user input string, remove all non-alphabetical characters
+inputString = [i for i in input("Enter string: ") if i.isalpha() or i.isspace()]
+answer = ''.join(inputString)
+print(answer)
+
+
+#Find the minimum of a variable amount of entries. 
+num = map(int,input("Enter the numbers to compare, seperated by a space: ").split())
+print(min(num), " is the minimum of these numbers.")
+
+
+#Divide two user input numbers and round the answer following standard rounding rules. 
+x, y = map(int, input("Enter the numbers to compare, seperated by a space: ").split())
+print(round(x/y)," is the rounded answer.")
 
 
 #Given a variable sized user-input array of digits, find the average  *excluding* the last digit and round the answer.   
@@ -33,7 +55,7 @@ answer = statistics.mean(array)
 print(round(answer), ' ')
 
 
-#iven a variable sized user-input array of digits, find the highest value. 
+#Given a variable sized user-input array of digits, find the highest value. 
 array = [int(n) for n in input("Enter the numbers to compare, seperated by a space: ").split()]
 array.sort()
 print(array[-1], " is the highest number in the given array.")
@@ -70,7 +92,7 @@ for num in arraySorted:
         if num == item: 
             print(index, " ")
 
-#Above problem using index() instead.
+#Above problem using index() instead. Which is way cooler. 
 array = list(map(int, input("Enter numbers seperated by a space: ").split()))
 arraySorted = array[:]
 arraySorted.sort()     

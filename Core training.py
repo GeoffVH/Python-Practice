@@ -373,7 +373,7 @@ print("This should be true: ", good, " This should be false: ", bad)
 #///////////////////////////////////////////////////////////////////#
 #Different ways to reverse a list, string, ect.
 
-|def using_Slice(myItem):
+def using_Slice(myItem):
     print(myItem[::-1])     #Best one to use, handles everything
 
 def using_Reversed(myItem):

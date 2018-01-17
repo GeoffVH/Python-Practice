@@ -25,7 +25,7 @@ print(count, " is the amount of vowls in the given string")
 print(input("Enter the string: ")[::-1])
 
 
-#Given a variable sized user-input array of digits, find the average without including the last digit and round the answer.   
+#Given a variable sized user-input array of digits, find the average  *excluding* the last digit and round the answer.   
 import statistics
 
 array = [int(n) for n in input("Enter the numbers to compare, seperated by a space: ").split()[:-1]]

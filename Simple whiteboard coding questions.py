@@ -9,8 +9,8 @@ print(inputCounter.most_common(2), " is the second most repeated digit.")
 
 
 #Take a user input string and count the number of vowels. Include y as a vowel.
-#Input can include any character including uppercase characters. 
-#I considered using counter, but it's not shorter or more readable. Simple is king. 
+#Input can include uppercase characters. 
+#>> I considered using counter, but it's not shorter or more readable. Simple is king. 
 count = 0
 for char in input("Enter the string: ").lower():
     if char in "aouiey": 
@@ -82,7 +82,7 @@ else:
 #Take a user-inputted array of numbers. Sort the array. Print each value of it's initial index.
 #E.G. array[0]=4, array[1]=2 and array[2]=5 as the given array will return 1,0,2
 
-#Automatically thought to use enumerate for this, and then discovered index() was a thing. Added both snippets. 
+#>> Automatically thought to use enumerate for this, and then discovered index() was a thing. Added both snippets. 
 array = list(map(int, input("Enter numbers seperated by a space: ").split()))
 arraySorted = array[:] #putting .sort() after the [:] returns none. Putting arraySorted = array.sort() would sort both. 
 arraySorted.sort()
@@ -92,7 +92,7 @@ for num in arraySorted:
         if num == item: 
             print(index, " ")
 
-#Above problem using index() instead. Which is way cooler. 
+#>> Above problem using index() instead. Which is way cooler. 
 array = list(map(int, input("Enter numbers seperated by a space: ").split()))
 arraySorted = array[:]
 arraySorted.sort()     

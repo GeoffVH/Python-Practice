@@ -1,5 +1,4 @@
 # Simple coding questions found from different online sources that I answered for practice.
-# Started with basic questions to test out python I've learned.  
 
 
 #Find the minimum of a variable amount of entries. 

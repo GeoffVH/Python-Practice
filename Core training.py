@@ -119,6 +119,20 @@ print(myList)
 
 
 #///////////////////////////////////////////////////////////////////#
+#List Gotcha. Difference between a regular list and a list composed of a list. 
+
+myArray = [1] * 5	#Each int in the list is stored by reference. 
+myArray[0] = 20		
+print(myArray)
+#>>> [20, 1, 1, 1, 1]
+	
+myArray = [[1]] * 5  #Set up list as [[1], [1], [1], [1], [1]] however lists by default store references. That's why you can have ints and strings in the same list.
+myArray[0][0] = 20   #Since you changed the value following one address, all other lookups lead back to your modification. 
+print(myArray)
+#>>> [[20], [20], [20], [20], [20]]
+
+
+#///////////////////////////////////////////////////////////////////#
 # Getting a function to return multiple variables
 def function():
 	return 1, 2, 3

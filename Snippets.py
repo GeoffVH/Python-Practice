@@ -25,11 +25,6 @@ print("Seven here: ", q)
 x, *y = [1,2,3,4,5,6,7]
 print("All numbers following 1 here: ", y)
 #>>> All numbers following 1 here:  [2, 3, 4, 5, 6, 7]
- 
-#Other things that work with quick assignment
-x, y, z = (i+1 for i in range(3))
-x, (y, z), q = [1, (2, 3), 4]
-x, y, z = map(int, tinyList) #maps tinylist into x, y, z as ints
 
 #One line variable switiching using quick assignment
 x = 10
@@ -44,8 +39,13 @@ print(a)
 #>>> (1, 2)
 print(b)
 #>>> 3
->>> print(c, d)
+print(c, d)
 #>>> 4 (5, 6)
+
+#Functions like map or generics work with quick assignment, so long as you're absolutely sure the # of variables the function returns
+x, y, z = (i+1 for i in range(3))	
+x, y, z = map(int, tinyList)
+x, y, z = [int(i) for i in input("Type 3 numbers: ").split()]
 
 #///////////////////////////////////////////////////////////////////#
 #Creating new types in a dynamic manner

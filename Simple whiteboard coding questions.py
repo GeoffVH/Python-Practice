@@ -28,7 +28,8 @@ print(answer, " is the sum of all digits.")
 
 
 #Reverse a given string.
-print(input("Enter the string: ")[::-1])
+inputString = input("Enter the string: ")
+print(inputString[::-1])
 
 
 #Given a user input string, remove all non-alphabetical characters

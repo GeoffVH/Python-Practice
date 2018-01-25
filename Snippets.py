@@ -31,6 +31,7 @@ myNewType = NewType()
 print(myNewType.function)
 #>>> I'm NewType's function
 
+
 #///////////////////////////////////////////////////////////////////#
 #Shortcuts in if-else syntax, useful for confusing co-workers
 #[on_true] if [expression] else [on_false]
@@ -39,6 +40,7 @@ print(myNewType.function)
 n = 10
 print("This should be printed") if n == 10 else print("Ruh roh")
 #>>> This should be printed
+
 
 #///////////////////////////////////////////////////////////////////#
 #Quick assignment from anything itterable to new variables, useful with map.
@@ -194,6 +196,22 @@ combinedDict = {**myDict, **myOtherDict}
 print(combinedDict)
 #>>> {'y': 5, 'x': 6, 'z': 3, 'a': 2}
 
+
+#///////////////////////////////////////////////////////////////////#
+#Quick set operations
+mySet = set([1,2,3,4])
+myOtherSet = set([3,4,5,6])
+
+mySet | myOtherSet # Union
+#>>> {1, 2, 3, 4, 5, 6}
+mySet & myOtherSet # Intersection
+#>>> {3, 4}
+mySet < myOtherSet # Subset
+#>>> False
+mySet - myOtherSet # Difference
+#>>> {1, 2}
+mySet ^ myOtherSet # Symmetric Difference
+#>>> {1, 2, 5, 6}
 
 #///////////////////////////////////////////////////////////////////#
 #You can generating Dicts on the go

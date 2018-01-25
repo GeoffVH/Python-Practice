@@ -4,16 +4,48 @@ This is all snippet code. The file isn't meant to be run as a whole.
 """
 
 #///////////////////////////////////////////////////////////////////#
-#One line variable switiching
+#Quick assignment from anything itterable to new variables.
+
+tinyList = ['1',2,'3']
+x, y, z = tinyList    #List size must = the number of variables exactly!
+print("One here: ",  x)     #>>> One here:  1
+print("Two here: ", y)      #>>> Two here:  2
+print("Three here: ", z)    #>>> Three here:  3
+
+x, *y, z, q = [1,2,3,4,5,6,7]      #But you can cheat the above rule doing this.
+print("One here: ", x) 
+#>>> One here:  1
+print("All numbers up till the last two: ", y)
+#>>> All numbers up till the last two:  [2, 3, 4, 5]
+print("Six here: ", z)
+#>>> Six here:  6
+print("Seven here: ", q)
+#>>> Seven here:  7
+
+x, *y = [1,2,3,4,5,6,7]
+print("All numbers following 1 here: ", y)
+#>>> All numbers following 1 here:  [2, 3, 4, 5, 6, 7]
+ 
+#Other things that work with quick assignment
+x, y, z = (i+1 for i in range(3))
+x, (y, z), q = [1, (2, 3), 4]
+x, y, z = map(int, tinyList) #maps tinylist into x, y, z as ints
+
+#One line variable switiching using quick assignment
 x = 10
 y = 'Ten'
-print(x, y)
-#>>> 10 Ten
-
 x, y = y, x
 print(x, y)
 #>>> Ten 10
 
+#Works with tuples too:
+(a, (b, c), d) = [(1, 2), (3, 4), (5, 6)]
+print(a)
+#>>> (1, 2)
+print(b)
+#>>> 3
+>>> print(c, d)
+#>>> 4 (5, 6)
 
 #///////////////////////////////////////////////////////////////////#
 #Creating new types in a dynamic manner
@@ -33,6 +65,13 @@ print(myNewType.function)
 
 
 #///////////////////////////////////////////////////////////////////#
+#Dir is a gem that should be used more often when you want to know exactly what an object you've got can do. 
+
+print(dir("Strings!"))
+#>>> Everything built-in to strings. It's a long list. 
+
+
+#///////////////////////////////////////////////////////////////////#
 #Shortcuts in if-else syntax, useful for confusing co-workers
 #[on_true] if [expression] else [on_false]
 #Reads exactly as english basically. It's neat.
@@ -42,29 +81,16 @@ print("This should be printed") if n == 10 else print("Ruh roh")
 #>>> This should be printed
 
 
+
 #///////////////////////////////////////////////////////////////////#
-#Quick assignment from anything itterable to new variables, useful with map.
+#Putting if and for together
 
-tinyList = ['1',2,'3']
-x, y, z = tinyList    #List size must = the number of variables exactly!
-print("One here: ",  x)     #>>> One here:  1
-print("Two here: ", y)      #>>> Two here:  2
-print("Three here: ", z)    #>>> Three here:  3
+[(x, y) for x in range(4) if x % 2 == 1 for y in range(4)]
+#>>> [(1, 0), (1, 1), (1, 2), (1, 3), (3, 0), (3, 1), (3, 2), (3, 3)]
 
-x, *y, z, q = [1,2,3,4,5,6,7]      #But you can cheat the above rule doing this.
-print("One here: ", x)
-#>>> One here:  1
-print("All numbers up till the last two: ", y)
-#>>> All numbers up till the last two:  [2, 3, 4, 5]
-print("Six here: ", z)
-#>>> Six here:  6
-print("Seven here: ", q)
-#>>> Seven here:  7
-
-#Other things that work
-x, y, z = (i+1 for i in range(3))
-x, (y, z), q = [1, (2, 3), 4]
-x, y, z = map(int, tinyList) #maps tinylist into x, y, z as ints
+#Possible to weave in an else too by going this setup: 
+#[ _ if _ else _ for ... ]
+# TO DO: Try putting the if-else syntax with the for loop syntax together. 
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -128,10 +154,21 @@ myArray[0] = 20
 print(myArray)
 #>>> [20, 1, 1, 1, 1]
 	
-myArray = [[1]] * 5  #Set up list as [[1], [1], [1], [1], [1]] however lists by default store references. That's why you can have ints and strings in the same list.
-myArray[0][0] = 20   #Since you changed the value following one address, all other lookups lead back to your modification. 
+myArray = [[1]] * 5  #Set up list as [[1], [1], [1], [1], [1]] however lists by default store references. 
+#That's why you can have ints and strings in the same list.
+#So what you're doing is setting up a reference to [1] and copying that reference five times, populating the rest of the array with the same reference.
+myArray[0][0] = 20   #Since you changed the value following one address, all other lookups lead back to your modification since they're all copies of the orignal. 
 print(myArray)
 #>>> [[20], [20], [20], [20], [20]]
+
+
+#///////////////////////////////////////////////////////////////////#
+#Other neat things with the * operator.
+
+#This works the exact same with lists and sets. 
+myString = "xyz" * 3
+print(myString)
+#>>> xyzxyzxyz
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -160,7 +197,7 @@ for x, y in zip(myList, myOtherList):
 
 
 #///////////////////////////////////////////////////////////////////#
-#Sliding window with islice
+#Sliding window with islice. I did not come up with this one, but found it online. 
 
 from itertools import islice
 
@@ -173,6 +210,17 @@ print(windowSlide(myList, 3))
 #>>> [(1, 2, 3), (2, 3, 4), (3, 4, 5), (4, 5, 6)]
 print(windowSlide(myList, 2))
 #>>> [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+
+
+#/////////////////////////////////////////////////////////////////#
+#Key point of the above snippet
+#Basically, zip(*a) unzips a. So if b = zip(a), then a == zip(*b)
+#Ergo: turns a list of pairs in to a pair of lists
+
+myList = [(1,2), (3,4), (5,6)]
+zip(*myList)
+print(zip(*myList))
+#>>> [(1, 3, 5), (2, 4, 6)]
 
 
 #///////////////////////////////////////////////////////////////////#
@@ -212,6 +260,20 @@ mySet - myOtherSet # Difference
 #>>> {1, 2}
 mySet ^ myOtherSet # Symmetric Difference
 #>>> {1, 2, 5, 6}
+
+
+#///////////////////////////////////////////////////////////////////#
+#Using sets to handle duplicates
+
+myList = [1,2,1,1,2,3,4] 
+print(set(myList))
+#>>> {1, 2, 3, 4}
+
+numInList = len(set(myList))
+print("Amount of unique numbers in myList: ", numInList) 
+
+
+
 
 #///////////////////////////////////////////////////////////////////#
 #You can generating Dicts on the go

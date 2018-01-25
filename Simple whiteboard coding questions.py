@@ -93,11 +93,20 @@ for num in arraySorted:
         if num == item: 
             print(index, " ")
 
-#>> Above problem using index() instead. Which is way cooler. 
+#>> Above problem using index() instead. Which is way cooler.
 array = list(map(int, input("Enter numbers seperated by a space: ").split()))
 arraySorted = array[:]
 arraySorted.sort()     
 
 for num in arraySorted:
     print(array.index(num), " ")
+    
+    
+#Given two lists, A and B, map position of all A values to the index where they appear in B. There can be duplicates, all elements in A appear in B.
+list = []
+for num in A:
+    list.append(B.index(num))
+return list
+
+
  

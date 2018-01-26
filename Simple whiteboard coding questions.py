@@ -17,7 +17,7 @@ for char in input("Enter the string: ").lower():
         count += 1
 print(count, " is the amount of vowls in the given string")
 
-#>>> After playing around with if conditions inside loop comprehensions I found a better way.
+#>>> After learning more on if conditions inside loop comprehensions I found a better way.
 inputList = input("Enter the string: ").lower()
 listOfVowls = [c for c in inputList if c in "aouiey"]
 print(len(listOfVowls), " is the amount of vowls in the given string")

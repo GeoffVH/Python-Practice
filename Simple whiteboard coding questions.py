@@ -10,13 +10,17 @@ print(inputCounter.most_common(2), " is the second most repeated digit.")
 
 #Take a user input string and count the number of vowels. Include y as a vowel.
 #Input can include uppercase characters. 
-#>> I considered using counter, but it's not shorter or more readable. Simple is king. 
+#>> I considered using counter, but it ended up neither shorter or more readable.
 count = 0
 for char in input("Enter the string: ").lower():
     if char in "aouiey": 
         count += 1
 print(count, " is the amount of vowls in the given string")
 
+#>>> After playing around with if conditions inside loop comprehensions I found a better way.
+inputList = input("Enter the string: ").lower()
+listOfVowls = [c for c in inputList if c in "aouiey"]
+print(len(listOfVowls), " is the amount of vowls in the given string")
 
 #Given a user-input digit, print the sum of it's individual digits. 
 #E.G. 224 = 8

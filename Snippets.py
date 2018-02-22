@@ -466,7 +466,6 @@ print("This should be true: ", good, " This should be false: ", bad)
 
 #///////////////////////////////////////////////////////////////////#
 #Different ways to reverse a list, string, ect.
-
 def using_Slice(myItem):
     print(myItem[::-1])     #Best one to use, handles everything
 
@@ -488,3 +487,12 @@ using_Reversed(tinyList)    #>>> [3, 2, 1]
 using_Reversed_alt(myString) #Prints !dlow olleH char by char on each line
 using_Reverse(tinyList)     #>>> [3, 2, 1]
 #>>> [3, 2, 1]
+
+
+#///////////////////////////////////////////////////////////////////#
+#Setting up dicts using loop comprehensions.  
+myList = [[1,'A'],['KEY','B',7,7,7],[3,'C','HELLO WORLD!']]
+myDict = { e[0]:e for e in myList}
+print(myDict)
+#>>> {'KEY': ['KEY', 'B', 7, 7, 7], 1: [1, 'A'], 3: [3, 'C', 'HELLO WORLD!']}
+        

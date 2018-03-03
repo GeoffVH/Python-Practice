@@ -28,7 +28,7 @@ print(len(listOfVowls), " is the amount of vowls in the given string")
 
 #///////////////////////////////////////////////////////////////////#
 #Given a user-input digit, print the sum of it's individual digits. 
-#E.G. 224 = 8
+#E.G. 224 = 2+2+4 = 8
 inputList = [int(char) for char in input("Enter the number: ")]
 answer = 0
 for num in inputList:

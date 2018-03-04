@@ -70,7 +70,6 @@ print(myNewType.function)
 print(dir("Strings!"))
 #>>> Everything built-in to strings. It's a long list. 
 
-
 #///////////////////////////////////////////////////////////////////#
 #Shortcuts in if-else syntax, useful for confusing co-workers
 #[on_true] if [expression] else [on_false]
@@ -81,17 +80,45 @@ print("This should be printed") if n == 10 else print("Ruh roh")
 #>>> This should be printed
 
 
+#///////////////////////////////////////////////////////////////////#
+#Nested for loop in single loop comp.  
+
+listy = [[1,2,3], [4,5,6], [7,8,9]]
+[num for elem in listy for num in elem]
+#>>> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Re-wording snippet 
+
+1) for elem in listy:
+    for num in elem:
+        add num to the list
+	
+2) [for elem in listy: for num in elem: add num to the list]
+3) [num for elem in listy for num in elem]
+
+#You can also set up tuples in nested loops
+[(x,y) for x in range(2) for y in range(2)]
+#>>> [(0, 0), (0, 1), (1, 0), (1, 1)]
+
+you can think of it like this: 
+[(x,y)
+ for x in range(2):
+ 	for y in range(2):
+		add (x,y) to the list]
 
 #///////////////////////////////////////////////////////////////////#
-#Putting if and for together
+#Putting if and for together, and mixing in nested for loops
 
+#Possible to weave in if/else using that shortcut at the start too by going this setup: 
+[a if a else b for a in sequence] 
+
+listy = [1,2,3,4,5,6,7,8,10]
+["Even" if num%2==0 else 'Odd' for num in listy] 
+#>>> ['Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Even']
+	
+#Putting nested loops pairs
 [(x, y) for x in range(4) if x % 2 == 1 for y in range(4)]
 #>>> [(1, 0), (1, 1), (1, 2), (1, 3), (3, 0), (3, 1), (3, 2), (3, 3)]
-
-#Possible to weave in an else too by going this setup: 
-#[ _ if _ else _ for ... ]
-# TO DO: Try putting the if-else syntax with the for loop syntax together. 
-
 
 #///////////////////////////////////////////////////////////////////#
 #Things you can do with negatives in the index spot

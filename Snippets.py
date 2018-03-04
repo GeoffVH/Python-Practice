@@ -81,19 +81,17 @@ print("This should be printed") if n == 10 else print("Ruh roh")
 
 
 #///////////////////////////////////////////////////////////////////#
-#Nested for loop in single loop comp.  
+#Nested loop comprehension + if/else mega guide. They're handy, just need to pay attention to setting up syntax correctly.
 
 listy = [[1,2,3], [4,5,6], [7,8,9]]
 [num for elem in listy for num in elem]
 #>>> [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-Re-wording snippet 
-
+Re-wording snippet step by step
 1) for elem in listy:
     for num in elem:
         add num to the list
-	
-2) [for elem in listy: for num in elem: add num to the list]
+2) for elem in listy: for num in elem: add num to the list
 3) [num for elem in listy for num in elem]
 
 #You can also set up tuples in nested loops
@@ -101,24 +99,41 @@ Re-wording snippet
 #>>> [(0, 0), (0, 1), (1, 0), (1, 1)]
 
 you can think of it like this: 
-[(x,y)
+(x,y)
  for x in range(2):
  	for y in range(2):
-		add (x,y) to the list]
+		add (x,y) to the list
 
-#///////////////////////////////////////////////////////////////////#
-#Putting if and for together, and mixing in nested for loops
+#You can add if statements to nested loops, but be sure to get the syntax right. Here we remove the string that doesn't match the 2 num pattern.
+testList = ['121212', '343434', '12341234', '565656' ]
+listSets = [set('12'), set("34"), set("56")]
+[str for str in testList for row in listSets if set(str.lower()) <= row]
+#>>> ['121212', '343434', '565656']
 
-#Possible to weave in if/else using that shortcut at the start too by going this setup: 
+str 
+ for str in testList: 
+ 	for row in listSets: 
+ 		if set(str.lower()) <= row:
+			add str into the list
+
+ 
+#AFAIK, you can't do normal if/else at the start except using this syntax. The if/else alternate syntax,
 [a if a else b for a in sequence] 
 
 listy = [1,2,3,4,5,6,7,8,10]
 ["Even" if num%2==0 else 'Odd' for num in listy] 
 #>>> ['Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Odd', 'Even', 'Even']
-	
-#Putting nested loops pairs
+
+
+#You can put if else like normal anywhere else in the loop comp however
 [(x, y) for x in range(4) if x % 2 == 1 for y in range(4)]
 #>>> [(1, 0), (1, 1), (1, 2), (1, 3), (3, 0), (3, 1), (3, 2), (3, 3)]
+
+(x, y) 
+ for x in range(4):
+ 	if x % 2 == 1:
+ 		for y in range(4):
+			add (x,y) to the list
 
 #///////////////////////////////////////////////////////////////////#
 #Things you can do with negatives in the index spot

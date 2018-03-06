@@ -118,7 +118,7 @@ str
 
  
 #AFAIK, you can't do normal if/else at the start except using this syntax. The if/else alternate syntax,
-[a if a else b for a in sequence] 
+[x if a else y for a in sequence] 
 
 listy = [1,2,3,4,5,6,7,8,10]
 ["Even" if num%2==0 else 'Odd' for num in listy] 

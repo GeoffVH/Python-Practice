@@ -256,7 +256,7 @@ print(windowSlide(myList, 2))
 
 #/////////////////////////////////////////////////////////////////#
 #Key point of the above snippet
-#Basically, zip(*a) unzips a. So if b = zip(a), then a == zip(*b)
+#Basically, zip(*a) unzips a. So if b = zip(a), then a = zip(*b)
 #Ergo: turns a list of pairs in to a pair of lists
 
 myList = [(1,2), (3,4), (5,6)]
@@ -287,6 +287,11 @@ combinedDict = {**myDict, **myOtherDict}
 print(combinedDict)
 #>>> {'y': 5, 'x': 6, 'z': 3, 'a': 2}
 
+#///////////////////////////////////////////////////////////////////#
+#Flatten a nested list
+myList = [['one', 'two', 'three', 'four'],[1,2,3,4]]
+sum(myList, [])
+#>>> ['one', 'two', 'three', 'four', 1, 2, 3, 4]
 
 #///////////////////////////////////////////////////////////////////#
 #Quick set operations

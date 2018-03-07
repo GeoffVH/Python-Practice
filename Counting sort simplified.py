@@ -18,36 +18,32 @@ def counting_sort(array, maxval):
             i += 1
     return array
     
-    
-#First attempt at condensing
+#//////////////////////////////////////////////////////#    
+#First itteration at condensing
 def counting_Sort1(arr):
-    
     highest = max(arr) + 1
     count = [0] * (highest)
     ans = []
 
     for num in arr:
         count[num] += 1
-    
     for rep, i in zip(count, range(highest)):
-        ans.extend([i] * rep)
-                    
+        ans.extend([i] * rep)              
     return ans
     
-    
- #Second attempt at condensing
+ #//////////////////////////////////////////////////////#  
+ #Second itteration at condensing
  def counting_Sort2(arr):
-    
     highest = max(arr) + 1
     count = [0] * (highest)
-
+    
     for num in arr:
         count[num]+=1
-
     ans = [[i]*rep for rep, i in zip(count, range(highest)) if [i]*rep ]
     return sum(ans, [])
 
-#Final attempt at condensing
+#//////////////////////////////////////////////////////#  
+#Final itteration at condensing
 def counting_Sort3(arr):
     count = [[i] * arr.count(i) for i in range(max(arr)+1) if arr.count(i)]
     return sum(count, [])

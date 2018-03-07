@@ -272,10 +272,11 @@ print(zip(*myList))
 myList = ['one', 'two', 'three', 'four']
 myOtherList = [1, 2, 3, 4]
 
-finalList = [*myList, *myOtherList]
-print(finalList)
+[*myList, *myOtherList]
 #>>> ['one', 'two', 'three', 'four', 1, 2, 3, 4]
 
+myList+myOtherList
+#>>> ['one', 'two', 'three', 'four', 1, 2, 3, 4]
 
 #///////////////////////////////////////////////////////////////////#
 #Combining dicts together using same logic as above snippet

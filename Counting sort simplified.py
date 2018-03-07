@@ -1,9 +1,7 @@
 #Trying to condense the typical counting sort into something more streamlined. 
-#Objective is to see just how pythonic you can turn the original code. 
+#Objective is to see just how simplified can turn the original code, without making it unreadable.  
 
-#Original code, looks very much like something from java or C++
-#Obtained from http://www.learntosolveit.com/python/algorithm_countingsort.html
-
+#Original counting sort Obtained from http://www.learntosolveit.com/python/algorithm_countingsort.html
 def counting_sort(array, maxval):
     """in-place counting sort"""
     n = len(array)
@@ -19,7 +17,7 @@ def counting_sort(array, maxval):
     return array
     
 #//////////////////////////////////////////////////////#    
-#First itteration at condensing
+#First itteration at condensing, which I think is the cleanest way to write this without losing O(n)
 def counting_Sort1(arr):
     highest = max(arr) + 1
     count = [0] * (highest)
@@ -32,18 +30,18 @@ def counting_Sort1(arr):
     return ans
     
  #//////////////////////////////////////////////////////#  
- #Second itteration at condensing
+ #Second itteration at condensing, slightly more condensed but ans becomes a little more difficult to understand at a glance
  def counting_Sort2(arr):
     highest = max(arr) + 1
     count = [0] * (highest)
     
     for num in arr:
         count[num]+=1
-    ans = [[i]*rep for rep, i in zip(count, range(highest)) if [i]*rep ]
+    ans = [[i]*rep for rep, i in zip(count, range(highest)) if rep]
     return sum(ans, [])
 
 #//////////////////////////////////////////////////////#  
-#Final itteration at condensing
+#Final itteration at condensing, loses the O(n) in exchange for O(n^2) but it's easier to read than the second itt. 
 def counting_Sort3(arr):
     count = [[i] * arr.count(i) for i in range(max(arr)+1) if arr.count(i)]
     return sum(count, [])

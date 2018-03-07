@@ -544,3 +544,15 @@ myDict = { e[0]:e for e in myList}
 print(myDict)
 #>>> {'KEY': ['KEY', 'B', 7, 7, 7], 1: [1, 'A'], 3: [3, 'C', 'HELLO WORLD!']}
         
+#///////////////////////////////////////////////////////////////////#
+#Python considers almost everything as true if used as a bool except for: None, 0, False, '', (), [], {}
+#Can be useful in some cases, esspecially when paired with And, Or, Not, ect ect
+#In this example, using '' as false specifically for the "or num" part. Since empty string + another empty string is an empty string. 
+
+size = 15
+['Fizz' * (not num%3) + 'Buzz' * (not num%5) or num for num in range(size)][1:]
+#>> [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14]
+#Can also replace range(size) with range(1, size) if slice isn't prefered. 
+
+
+

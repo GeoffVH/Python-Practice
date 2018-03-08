@@ -127,5 +127,18 @@ for num in A:
     list.append(B.index(num))
 return list
 
+#///////////////////////////////////////////////////////////////////#
+#Given a user input string, give a list of all permutations possible
+def setNode(str_Pool, str_Ans, list_Ans):
+    if(str_Pool):
+        for i in range(len(str_Pool)):
+            temp_Pool = str_Pool[:i] + str_Pool[(i+1):]
+            temp_Ans = str_Ans[:] + str_Pool[i]
+            setNode(temp_Pool, temp_Ans, list_Ans)
+    else:
+        list_Ans.append(str_Ans)
 
+listy = []            
+setNode(input("Enter string: "), '', listy)
+print(list(set(listy)))
  

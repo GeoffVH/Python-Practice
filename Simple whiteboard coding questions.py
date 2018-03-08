@@ -96,6 +96,13 @@ if (stringArr == stringArr[::-1]):
 else: 
     print("The two strings are not palindromes.")     
 
+#///////////////////////////////////////////////////////////////////#
+#Determine if two user input strings are permutations of each other
+def isPermutation(str1, str2):
+    return len(str1) == len(str2) and set(str1) == set(str2)
+
+print(isPermutation(input("Enter first string: "), input("Enter second string: ")))
+
 
 #///////////////////////////////////////////////////////////////////#
 #Take a user-inputted array of numbers. Sort the array. Print each value of it's initial index.

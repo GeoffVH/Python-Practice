@@ -149,3 +149,8 @@ listy = []
 setNode(input("Enter string: "), '', listy)
 print(list(set(listy)))
  
+#///////////////////////////////////////////////////////////////////#
+#Given two strings, find out if they are permutations of each other. 
+
+def isPerm(str1, str2):
+    return len(str1) == len(str2) and set(str1) == set(str2)

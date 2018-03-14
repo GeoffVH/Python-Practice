@@ -167,6 +167,14 @@ def has_Repeating(str):
 def reverse_str(str):
     return str[::-1][1:]
 
+#[:-1:-1] doesn't work if you wanted to do one slice, but this is a workaround: 
+
+def reverse1(str):
+    buffer = len(str)-2
+    return str[buffer::-1]
+
+#///////////////////////////////////////////////////////////////////#
+
 
 
 

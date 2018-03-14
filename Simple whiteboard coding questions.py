@@ -154,3 +154,19 @@ print(list(set(listy)))
 
 def isPerm(str1, str2):
     return len(str1) == len(str2) and set(str1) == set(str2)
+
+#///////////////////////////////////////////////////////////////////#
+#Given a string, find if the string contains repeating characters
+
+def has_Repeating(str):
+    return not len(str) == len(set(str))
+
+#///////////////////////////////////////////////////////////////////#
+#Given a string, reverse the string but exclude the last elemment before reversal.
+
+def reverse_str(str):
+    return str[::-1][1:]
+
+
+
+

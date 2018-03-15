@@ -174,7 +174,10 @@ def reverse1(str):
     return str[buffer::-1]
 
 #///////////////////////////////////////////////////////////////////#
+#Count frequency of all numbers that are present in an array, including missing elements.
 
+def countOccurances(arr):
+    return [ arr.count(i) for i in range(1, max(arr)+1) ]
 
 
 

@@ -72,16 +72,6 @@ def compress(str1):
             ans += rep
     return ans
 
-#////////////////////////////////////////#
-#			Question 8
-# String Rotation:  Assume you have a method  i5Substring  which checks if one word  is  a substring
-# of another.  Given  two strings, S1 and S2, write code to check  if  S2  is  a rotation of S1 using only one
-# call  to  isSubstring  (e.g.,  U waterbottle uis  a rotation ofu erbottlewat U ).
-
-#Is there a way to find out where the split is done? -> We can use find if so.
-#Alternative? Set and len must match of course, but that won't catch all possible exceptions. 
-#s2 in s1 would catch all cases but also extra.
-#can I return where s2 was found in s1? 
 
 #////////////////////////////////////////#
 #			Question 8

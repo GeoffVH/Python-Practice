@@ -1,5 +1,11 @@
 # Simple coding questions found from different online sources that I answered for practice.
 
+#///////////////////////////////////////////////////////////////////#
+#Sort a list without using a built-in sorting function.
+def counting_Sort(arr):
+    count = [[i] * arr.count(i) for i in range(max(arr)+1) if arr.count(i)]
+    return sum(count, [])
+
 
 #///////////////////////////////////////////////////////////////////#
 #Given a variable list of numbers, find the second most repeated digit.

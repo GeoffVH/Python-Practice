@@ -1,5 +1,5 @@
 """
-Training on syntactic sugar, and alternate ways of doing core tasks.
+Neat syntax that I've researched about or come up with. 
 This is all snippet code. The file isn't meant to be run as a whole.
 """
 

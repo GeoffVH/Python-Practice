@@ -65,9 +65,9 @@ from itertools import groupby
 
 def compress(str1):
     ans = ''
-    for k, g in groupby(str1):
-        ans += k
-        rep = str(len(list(g)))
+    for key, group in groupby(str1):
+        ans += key
+        rep = str(len(list(group)))
         if rep!='1':
             ans += rep
     return ans

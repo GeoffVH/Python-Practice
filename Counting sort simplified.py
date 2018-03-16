@@ -1,5 +1,5 @@
-#Trying to condense the typical counting sort into something more streamlined. 
-#Objective is to see just how simplified can turn the original code, without making it unreadable.  
+#Trying to condense the typical counting sort into something more streamlined.
+#Objective is to see just how simplified I can turn the original code, without making it unreadable.  
 
 #Original counting sort Obtained from http://www.learntosolveit.com/python/algorithm_countingsort.html
 def counting_sort(array, maxval):
@@ -41,7 +41,7 @@ def counting_Sort1(arr):
     return sum(ans, [])
 
 #//////////////////////////////////////////////////////#  
-#Final itteration at condensing, loses the O(n) in exchange for O(n^2) but it's easier to read than the second itt. 
+#Final itteration at condensing, loses the O(n) in exchange for O(n^2) due to count being O(n) but it's easier to read than the second itt. 
 def counting_Sort3(arr):
     count = [[i] * arr.count(i) for i in range(max(arr)+1) if arr.count(i)]
     return sum(count, [])

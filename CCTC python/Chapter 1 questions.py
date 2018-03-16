@@ -64,9 +64,11 @@ def is_Permutation(str1):
 from itertools import groupby
 
 def compress(str1):
-    s = ''
+    ans = ''
     for k, g in groupby(str1):
-        rep = len(list(g))
-        s += k + str(rep)
-    return s
+        ans += k
+        rep = str(len(list(g)))
+        if rep!='1':
+            ans += rep
+    return ans
 	

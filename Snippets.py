@@ -104,7 +104,8 @@ you can think of it like this:
  	for y in range(2):
 		add (x,y) to the list
 
-#You can add if statements to nested loops, but be sure to get the syntax right. Here we remove the string that doesn't match the 2 num pattern.
+#You can add if statements to nested loops, but be sure to get the syntax right. 
+#Here we remove the string that doesn't match the 2 num pattern.
 testList = ['121212', '343434', '12341234', '565656' ]
 listSets = [set('12'), set("34"), set("56")]
 [str for str in testList for row in listSets if set(str.lower()) <= row]
@@ -196,10 +197,13 @@ myArray[0] = 20
 print(myArray)
 #>>> [20, 1, 1, 1, 1]
 	
-myArray = [[1]] * 5  #Set up list as [[1], [1], [1], [1], [1]] however lists by default store references. 
-#That's why you can have ints and strings in the same list.
-#So what you're doing is setting up a reference to [1] and copying that reference five times, populating the rest of the array with the same reference.
-myArray[0][0] = 20   #Since you changed the value following one address, all other lookups lead back to your modification since they're all copies of the orignal. 
+myArray = [[1]] * 5  	#Set up list as [[1], [1], [1], [1], [1]] however lists by default store references. 
+			#That's why you can have ints and strings in the same list.
+			#So what you're doing is setting up a reference to [1] and copying that reference five times, 
+			#populating the rest of the array with the same reference.
+
+myArray[0][0] = 20   	#Since you changed the value following one address, 
+			#all other lookups lead back to your modification since they're all copies of the orignal. 
 print(myArray)
 #>>> [[20], [20], [20], [20], [20]]
 

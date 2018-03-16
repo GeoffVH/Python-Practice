@@ -554,5 +554,34 @@ size = 15
 #>> [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14]
 #Can also replace range(size) with range(1, size) if slice isn't prefered. 
 
+#///////////////////////////////////////////////////////////////////#
+#Filter( foo, bar) where foo returns true/false and is applied on every element in bar
+#Foo is typically a function, and bar is typically some sort of itterable object. 
 
+#Filter out odd numbers from the list.
+listy = [0,1,2,3,4,5,6,7,8]
+result = filter(lambda x: x % 2 == 0, listy)
+list(result)
+#>>> [0, 2, 4, 6, 8]
 
+#Given two arrays, returns a list of elements common to both. 
+def findIntersection(arr1, arr2):
+    return list(filter(lambda x: x in arr1, arr2))
+
+listy1 = [2,3,15,5,6,11,1]
+listy2 = [1,10,11,7,12,15]
+findIntersection(listy1, listy2)
+#>>> [1, 11, 15]
+
+#///////////////////////////////////////////////////////////////////#
+#Intertools's groupby is interesting. 
+
+from itertools import groupby
+
+for key, group in groupby([1,1,1,2,2,2,2,7,7,12]):
+    temp = list(group)
+    print(key, "occured", len(temp), "times. Group stored the list as: ", temp)
+#>>> 1 occured 3 times. Group stored the list as:  [1, 1, 1]
+#>>> 2 occured 4 times. Group stored the list as:  [2, 2, 2, 2]
+#>>> 7 occured 2 times. Group stored the list as:  [7, 7]
+#>>> 12 occured 1 times. Group stored the list as:  [12]

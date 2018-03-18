@@ -42,6 +42,12 @@ print(b)
 print(c, d)
 #>>> 4 (5, 6)
 
+#Also handy when doing partitions. E.G. given 45.60 get 45 and 60 in seperate variables:
+x,y,z = '45.60'.partition('.')
+print(x) #>>> 45
+print(y) #>>> .
+print(z) #>>> 60
+
 #Functions like map or generics work with quick assignment, so long as you're absolutely sure the # of variables the function returns
 x, y, z = (i+1 for i in range(3))	
 x, y, z = map(int, tinyList)

@@ -103,14 +103,6 @@ else:
     print("The two strings are not palindromes.")     
 
 #///////////////////////////////////////////////////////////////////#
-#Determine if two user input strings are permutations of each other
-def isPermutation(str1, str2):
-    return len(str1) == len(str2) and set(str1) == set(str2)
-
-print(isPermutation(input("Enter first string: "), input("Enter second string: ")))
-
-
-#///////////////////////////////////////////////////////////////////#
 #Take a user-inputted array of numbers. Sort the array. Print each value of it's initial index.
 #E.G. array[0]=4, array[1]=2 and array[2]=5 as the given array will return 1,0,2
 

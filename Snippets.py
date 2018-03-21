@@ -596,3 +596,24 @@ for key, group in groupby([1,1,1,2,2,2,2,7,7,12]):
 #>>> 2 occured 4 times. Group stored the list as:  [2, 2, 2, 2]
 #>>> 7 occured 2 times. Group stored the list as:  [7, 7]
 #>>> 12 occured 1 times. Group stored the list as:  [12]
+
+
+#///////////////////////////////////////////////////////////////////#
+#Difference between 'and' and '&'
+
+#While studying this piece of code, I found different results
+def intersection1(a1, a2):
+    print( list(set(a1) and set(a2)) )
+
+def intersection2(a1, a2):
+    print( list(set(a1) & set(a2)) )
+
+
+ex1 = [1]
+ex2 = [1,2]
+intersection1(ex1, ex2) #>>> [1, 2]
+intersection2(ex1, ex2) #>>> [1]
+#'and' is a logical and
+#'&" is a bitwise and
+#'and' will return the last value if neither of the arguments is False 
+#'&' returns a new argument composed of the intersection (values that satisfy true in both iterables). 

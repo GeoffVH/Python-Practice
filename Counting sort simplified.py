@@ -43,5 +43,5 @@ def counting_Sort1(arr):
 #//////////////////////////////////////////////////////#  
 #Final itteration at condensing, loses the O(n) in exchange for O(n^2) due to count being O(n) but it's easier to read than the second itt. 
 def counting_Sort3(arr):
-    count = [[i] * arr.count(i) for i in range(max(arr)+1) if arr.count(i)]
+    count = [[i] * arr.count(i) for i in range(max(arr)+1)]
     return sum(count, [])

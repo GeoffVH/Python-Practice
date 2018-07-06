@@ -462,16 +462,30 @@ foo(**myDict)   #>>> 5, 6
 
 
 #///////////////////////////////////////////////////////////////////#
-#Print out the most repeating number, using count shenanigans with max
+#Count and it's uses with strings, lists, ect. Lets you count substrings, or single character matches. 
+
+s = "Count how many occurances of many many many's?"
+print(s.count("many"))
+#>>> 4
+
+s = "Count the amount of ssssssssssssss"
+print(s.count("s"))
+#>>> 14
+
+i = [1,1,1,1,2,3,2,4,5,6,4,2]
+print("The amount of 1's in i is: ", i.count(1))
+#>>> The amount of 1's in i is:  4
+
+#///////////////////////////////////////////////////////////////////#
+#Count is useful when paired with max, set, and other functions. For example, get the most repeating number. 
 
 myList = [1,2,3,4,2,2,2,1,4,4,4,7,3,2,8,6,4,1,2,9]
 mySet = set(myList)
 print(max(mySet, key = myList.count))
 #>>> 2
 
-
 #///////////////////////////////////////////////////////////////////#
-#Print out the most repeating number, using counter shenanigans. Longer but far more thorough. 
+#Print out the most repeating number, using counter shenanigans. Longer but far more thorough and you can get the next most, ect.
 import collections
 
 myList = [1,2,3,4,2,2,2,1,4,4,4,7,3,2,8,6,4,1,2,9]
@@ -480,7 +494,6 @@ print( myCounter.most_common(1) )
 #>>> [(2, 6)]  this means 2 is the most common, appearing 6 times.
 print( myCounter.most_common(3) ) #Print out the first three most common w/ num of occurances.
 #>>> [(2, 6), (4, 5), (1, 3)]
-
 
 #///////////////////////////////////////////////////////////////////#
 #How to use counter in for loops, or dictionaries with for loops in general. 

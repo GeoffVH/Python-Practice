@@ -31,6 +31,11 @@ print(x) #>>> 45
 print(y) #>>> .
 print(z) #>>> 65
 
+#Can be used with other more odd cases like formating:
+Convert_to_phone = "18001234"
+phoneNumber = "{} + ({}{}{}) {}{}{}{}-{}{}{}".format(*Convert_to_phone)
+#>>> 1 +(800) 1234-567
+
 #Works with tuples too:
 (a, (b, c), d) = [(1, 2), (3, 4), (5, 6)]
 

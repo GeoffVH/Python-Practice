@@ -446,18 +446,6 @@ magicDict['p']("hello", " world!")
 
 
 #///////////////////////////////////////////////////////////////////#
-#Get index and value side by side from anything itterable.
-
-myList = ['A', 'B', 'C3P0', 4, 'High Five']
-for index, item in enumerate(myList):
-    print(index, item)
-#>>> 1 B
-#>>> 2 C3P0
-#>>> 3 4
-#>>> 4 High Five
-
-
-#///////////////////////////////////////////////////////////////////#
 #Setting up enum definitions
 
 class numbers:

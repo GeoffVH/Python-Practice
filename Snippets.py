@@ -277,6 +277,27 @@ zip(*myList)
 print(zip(*myList))
 #>>> [(1, 3, 5), (2, 4, 6)]
 
+#/////////////////////////////////////////////////////////////////#
+#Built in ways of keeping a counter in a for loop. 
+
+myList = ['one', 'two', 'three', 'four']
+for char, i in zip(myList, range(len(myList))):
+	print(char, i)
+
+#>>> one 0
+#>>> two 1
+#>>> three 2
+#>>> four 3
+
+#However, there's an cleaner more flexible built-in function that can replace zip in this case: Enumerate. 
+myList = ['one', 'two', 'three', 'four']
+for i, char in enumerate(myList):
+	print(char, i)
+
+#>>> one 0
+#>>> two 1
+#>>> three 2
+#>>> four 3
 
 #///////////////////////////////////////////////////////////////////#
 #Append one list to the end of another quickly

@@ -523,6 +523,7 @@ for char, occurances in myCounter.items():
 #///////////////////////////////////////////////////////////////////#
 #You can use sum with a list of booleans, for example counting up all vowels. 
 #Each true value can be added as 1. Each false value can be added as 0.
+#This is because python booleans are a child class of int
 
 myString = "Hello World!"
 sum(c in 'aeiou' for c in myString)

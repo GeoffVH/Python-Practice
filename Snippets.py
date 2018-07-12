@@ -520,6 +520,16 @@ for char, occurances in myCounter.items():
         print(char, " occured ", occurances, " times.")
 #>>> e  occured  1  times. o  occured  2  times.
 
+#///////////////////////////////////////////////////////////////////#
+#You can use sum with a list of booleans, for example counting up all vowels. 
+#Each true value can be added as 1. Each false value can be added as 0.
+
+myString = "Hello World!"
+sum(c in 'aeiou' for c in myString)
+
+#>>> 3
+#How the generator looks: 
+#[False, True, False, False, True, False, False, True, False, False, False, False]
 
 #///////////////////////////////////////////////////////////////////#
 #Using counter from collections to match anagrams

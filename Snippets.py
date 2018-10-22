@@ -570,6 +570,19 @@ using_Reversed_alt(myString) #Prints !dlow olleH char by char on each line
 using_Reverse(tinyList)     #>>> [3, 2, 1]
 #>>> [3, 2, 1]
 
+#///////////////////////////////////////////////////////////////////#
+#Getting unique values in order of apperance of each grouping to show the [-1:] slice trick
+#If we have to look into the rear most element using just [-1] we'd get a null value error off the bat. 
+#putting [-1:] lets us peak at the last element without throwing an error. 
+
+iterable = "AAAABBBCCDAABBB"
+ans = []
+for item in iterable:
+	if item not in ans[-1:]: ans.append(item)
+	#If feeling fancy, it's possible to abuse the or function to reduce the above line a bit with this: 
+	#item in ans[-1:] or ans.append(item)
+print(ans)
+#>>> ['A','B','C','D','A','B']
 
 #///////////////////////////////////////////////////////////////////#
 #Setting up dicts using loop comprehensions.  
@@ -590,6 +603,16 @@ size = 15
 #>> [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14]
 #Can also replace range(size) with range(1, size) if slice isn't prefered. 
 
+#///////////////////////////////////////////////////////////////////#
+#Additional example abusing the or function's lazy evaluation. Same example as the [-1:] trick up above. 
+#Python is lazy. If the first value of Or is true it'll just straight skip checking the second value. 
+#Example takes a string and prints unique values of each grouping in order of apperance 
+iterable = "AAAABBBCCDAABBB"
+ans = []
+for item in iterable:
+	item in ans[-1:] or ans.append(item)
+print(ans)
+#>>> ['A','B','C','D','A','B']
 
 #///////////////////////////////////////////////////////////////////#
 #Filter( foo, bar) where foo returns true/false and is applied on every element in bar

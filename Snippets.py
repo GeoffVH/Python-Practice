@@ -66,6 +66,7 @@ print(function())   #Function() returns as a tuple.
 #>>> 1 2 3
 #>>> (1, 2, 3)
 
+
 #///////////////////////////////////////////////////////////////////#
 #Creating new types in a dynamic manner
 
@@ -428,13 +429,49 @@ for i in n:
 #>>> [1, 4]
 #>>> [1, 5]
 
+#///////////////////////////////////////////////////////////////////#
+#You can store format strings in dicts and then use them
+
+names1 = ['Alex', 'Jacob', 'Mark', 'Max']
+names2 = ['Alex', 'Jacob']
+table = {
+	0:"no one likes this",
+	1:"{} likes this",
+	2:"{} and {} like this",
+	3:"{}, {} and {} like this",
+	4:"{}, {} and {others} others like this"
+}
+sentence = table.get(len(names))
+print(sentence.format(*names[:3], others = len(names)-2)) #If * isn't used, we'd get 
+
+names1 will print:
+#>>> 'Alex, Jacob and 2 others like this'
+names2 will print:
+#>>> 'Jacob and Alex like this'
 
 #///////////////////////////////////////////////////////////////////#
-#Putting lambda's into dicts is actually possible.
+#You can store a reference to a function inside dictionaries and then call them via dictonary. 
+
+def do_ping():
+    return 'We have Pinged'
+
+def do_pong(pongString):
+    return 'We have {}'.format(pongString)
+
+dispatch = {
+    'ping': do_ping,
+    'pong': do_pong,
+}
+
+print(dispatch['ping']())
+print(dispatch['pong']('Ponged'))
+
+#///////////////////////////////////////////////////////////////////#
+#If you want to skip having to create functions, you can use lambdas instead. 
 magicDict = {
 	'sum': lambda x, y: x + y,
 	'subtract': lambda x, y: x - y,
-    'p': lambda x, y: print(x, y)
+	'p': lambda x, y: print(x, y)
 }
 
 print(magicDict['sum'](12,8))
@@ -443,7 +480,6 @@ magicDict['p']("hello", " world!")
 #>>> 20
 #>>> 10
 #>>> hello  world!
-
 
 #///////////////////////////////////////////////////////////////////#
 #Setting up enum definitions

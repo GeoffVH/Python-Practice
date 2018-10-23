@@ -23,8 +23,8 @@ def counting_Sort1(arr):
     count = [0] * (highest)
     ans = []
 
-    for num in arr:
-        count[num] += 1
+    for num in set(arr):
+        count[num] = arr.count(num)
     for rep, i in zip(count, range(highest)):
         ans.extend([i] * rep)              
     return ans
